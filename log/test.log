@@ -1,0 +1,75 @@
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "bikes"[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "bikes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "model_no" varchar, "price" varchar, "color" varchar, "lighting" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "bookings"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "bookings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "booking_process" varchar, "payment_option" varchar, "security" varchar, "rating" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL, "bike_id" integer NOT NULL, "status" varchar, "total_amount" varchar, "date" varchar)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_bookings_on_bike_id" ON "bookings" ("bike_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_bookings_on_user_id" ON "bookings" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "email" varchar, "contact" varchar, "dob" varchar, "gender" varchar, "address" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abookings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "booking_process" varchar DEFAULT NULL, "payment_option" varchar DEFAULT NULL, "security" varchar DEFAULT NULL, "rating" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL, "bike_id" integer NOT NULL, "status" varchar DEFAULT NULL, "total_amount" varchar DEFAULT NULL, "date" varchar DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_abookings_on_user_id" ON "abookings" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_abookings_on_bike_id" ON "abookings" ("bike_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "abookings" ("id","booking_process","payment_option","security","rating","created_at","updated_at","user_id","bike_id","status","total_amount","date")
+                     SELECT "id","booking_process","payment_option","security","rating","created_at","updated_at","user_id","bike_id","status","total_amount","date" FROM "bookings"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "bookings"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "bookings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "booking_process" varchar DEFAULT NULL, "payment_option" varchar DEFAULT NULL, "security" varchar DEFAULT NULL, "rating" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL, "bike_id" integer NOT NULL, "status" varchar DEFAULT NULL, "total_amount" varchar DEFAULT NULL, "date" varchar DEFAULT NULL, CONSTRAINT "fk_rails_9ec354d093"
+FOREIGN KEY ("bike_id")
+  REFERENCES "bikes" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_bookings_on_bike_id" ON "bookings" ("bike_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_bookings_on_user_id" ON "bookings" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "bookings" ("id","booking_process","payment_option","security","rating","created_at","updated_at","user_id","bike_id","status","total_amount","date")
+                     SELECT "id","booking_process","payment_option","security","rating","created_at","updated_at","user_id","bike_id","status","total_amount","date" FROM "abookings"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "abookings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abookings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "booking_process" varchar DEFAULT NULL, "payment_option" varchar DEFAULT NULL, "security" varchar DEFAULT NULL, "rating" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL, "bike_id" integer NOT NULL, "status" varchar DEFAULT NULL, "total_amount" varchar DEFAULT NULL, "date" varchar DEFAULT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_abookings_on_user_id" ON "abookings" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_abookings_on_bike_id" ON "abookings" ("bike_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "abookings" ("id","booking_process","payment_option","security","rating","created_at","updated_at","user_id","bike_id","status","total_amount","date")
+                     SELECT "id","booking_process","payment_option","security","rating","created_at","updated_at","user_id","bike_id","status","total_amount","date" FROM "bookings"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "bookings"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "bookings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "booking_process" varchar DEFAULT NULL, "payment_option" varchar DEFAULT NULL, "security" varchar DEFAULT NULL, "rating" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL, "bike_id" integer NOT NULL, "status" varchar DEFAULT NULL, "total_amount" varchar DEFAULT NULL, "date" varchar DEFAULT NULL, CONSTRAINT "fk_rails_9ec354d093"
+FOREIGN KEY ("bike_id")
+  REFERENCES "bikes" ("id")
+, CONSTRAINT "fk_rails_ef0571f117"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_bookings_on_bike_id" ON "bookings" ("bike_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_bookings_on_user_id" ON "bookings" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "bookings" ("id","booking_process","payment_option","security","rating","created_at","updated_at","user_id","bike_id","status","total_amount","date")
+                     SELECT "id","booking_process","payment_option","security","rating","created_at","updated_at","user_id","bike_id","status","total_amount","date" FROM "abookings"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "abookings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20231128042337)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20231127073535),
+(20231125121744),
+(20231125121700),
+(20231125121637),
+(20231125121614);[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'test', '2023-11-29 07:03:36.097339', '2023-11-29 07:03:36.097342') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', 'd13cf03aafe178c70dd2d11bdf4cc74f5392f84a', '2023-11-29 07:03:36.098465', '2023-11-29 07:03:36.098468') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

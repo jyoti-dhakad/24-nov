@@ -1,0 +1,1712 @@
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2023-11-25 12:16:24.029914', '2023-11-25 12:16:24.029921') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateBikes (20231125121614)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "bikes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "model_no" varchar, "price" varchar, "color" varchar, "lighting" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231125121614') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateBookings (20231125121637)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "bookings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "booking_process" varchar, "payment_option" varchar, "security" varchar, "rating" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231125121637') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20231125121700)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "email" varchar, "contact" varchar, "dob" varchar, "gender" varchar, "address" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231125121700') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddReferencesToBookings (20231125121744)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abookings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "booking_process" varchar DEFAULT NULL, "payment_option" varchar DEFAULT NULL, "security" varchar DEFAULT NULL, "rating" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "abookings" ("id","booking_process","payment_option","security","rating","created_at","updated_at")
+                     SELECT "id","booking_process","payment_option","security","rating","created_at","updated_at" FROM "bookings"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "bookings"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "bookings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "booking_process" varchar DEFAULT NULL, "payment_option" varchar DEFAULT NULL, "security" varchar DEFAULT NULL, "rating" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "bookings" ("id","booking_process","payment_option","security","rating","created_at","updated_at")
+                     SELECT "id","booking_process","payment_option","security","rating","created_at","updated_at" FROM "abookings"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "abookings"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_bookings_on_user_id" ON "bookings" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abookings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "booking_process" varchar DEFAULT NULL, "payment_option" varchar DEFAULT NULL, "security" varchar DEFAULT NULL, "rating" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_abookings_on_user_id" ON "abookings" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "abookings" ("id","booking_process","payment_option","security","rating","created_at","updated_at","user_id")
+                     SELECT "id","booking_process","payment_option","security","rating","created_at","updated_at","user_id" FROM "bookings"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "bookings"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "bookings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "booking_process" varchar DEFAULT NULL, "payment_option" varchar DEFAULT NULL, "security" varchar DEFAULT NULL, "rating" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL, CONSTRAINT "fk_rails_ef0571f117"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_bookings_on_user_id" ON "bookings" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "bookings" ("id","booking_process","payment_option","security","rating","created_at","updated_at","user_id")
+                     SELECT "id","booking_process","payment_option","security","rating","created_at","updated_at","user_id" FROM "abookings"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "abookings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abookings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "booking_process" varchar DEFAULT NULL, "payment_option" varchar DEFAULT NULL, "security" varchar DEFAULT NULL, "rating" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_abookings_on_user_id" ON "abookings" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "abookings" ("id","booking_process","payment_option","security","rating","created_at","updated_at","user_id")
+                     SELECT "id","booking_process","payment_option","security","rating","created_at","updated_at","user_id" FROM "bookings"[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE "bookings"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "bookings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "booking_process" varchar DEFAULT NULL, "payment_option" varchar DEFAULT NULL, "security" varchar DEFAULT NULL, "rating" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL, "bike_id" integer NOT NULL, CONSTRAINT "fk_rails_ef0571f117"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_bookings_on_user_id" ON "bookings" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "bookings" ("id","booking_process","payment_option","security","rating","created_at","updated_at","user_id")
+                     SELECT "id","booking_process","payment_option","security","rating","created_at","updated_at","user_id" FROM "abookings"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "abookings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_bookings_on_bike_id" ON "bookings" ("bike_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abookings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "booking_process" varchar DEFAULT NULL, "payment_option" varchar DEFAULT NULL, "security" varchar DEFAULT NULL, "rating" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL, "bike_id" integer NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_abookings_on_bike_id" ON "abookings" ("bike_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_abookings_on_user_id" ON "abookings" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "abookings" ("id","booking_process","payment_option","security","rating","created_at","updated_at","user_id","bike_id")
+                     SELECT "id","booking_process","payment_option","security","rating","created_at","updated_at","user_id","bike_id" FROM "bookings"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "bookings"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "bookings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "booking_process" varchar DEFAULT NULL, "payment_option" varchar DEFAULT NULL, "security" varchar DEFAULT NULL, "rating" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL, "bike_id" integer NOT NULL, CONSTRAINT "fk_rails_ef0571f117"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_9ec354d093"
+FOREIGN KEY ("bike_id")
+  REFERENCES "bikes" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_bookings_on_user_id" ON "bookings" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_bookings_on_bike_id" ON "bookings" ("bike_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "bookings" ("id","booking_process","payment_option","security","rating","created_at","updated_at","user_id","bike_id")
+                     SELECT "id","booking_process","payment_option","security","rating","created_at","updated_at","user_id","bike_id" FROM "abookings"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "abookings"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231125121744') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/bikes/" for ::1 at 2023-11-25 17:49:18 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/bikes"):
+  
+Started GET "/bikes/" for ::1 at 2023-11-25 17:50:30 +0530
+Processing by BikesController#index as */*
+  [1m[36mBike Load (0.2ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes"[0m
+  ↳ app/controllers/bikes_controller.rb:6:in `index'
+Completed 200 OK in 59ms (Views: 2.8ms | ActiveRecord: 3.0ms | Allocations: 16463)
+
+
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBike Create (1.4ms)[0m  [1m[32mINSERT INTO "bikes" ("name", "model_no", "price", "color", "lighting", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "ns-125"], ["model_no", "23"], ["price", "1,30,000"], ["color", "red"], ["lighting", "LED"], ["created_at", "2023-11-25 12:20:50.478153"], ["updated_at", "2023-11-25 12:20:50.478153"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/bikes/" for ::1 at 2023-11-25 17:51:10 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BikesController#index as */*
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes"[0m
+  ↳ app/controllers/bikes_controller.rb:6:in `index'
+Completed 200 OK in 115ms (Views: 80.5ms | ActiveRecord: 3.4ms | Allocations: 124463)
+
+
+  [1m[36mBooking Load (0.3ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" /* loading for pp */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBooking Create (1.8ms)[0m  [1m[32mINSERT INTO "bookings" ("booking_process", "payment_option", "security", "rating", "created_at", "updated_at", "user_id", "bike_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["booking_process", "in person"], ["payment_option", "cash"], ["security", "secure"], ["rating", "4"], ["created_at", "2023-11-25 12:32:40.604418"], ["updated_at", "2023-11-25 12:32:40.604418"], ["user_id", nil], ["bike_id", nil]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "contact", "dob", "gender", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["username", "rohit sharma"], ["email", "rohit@gmail.com"], ["contact", "3456788765"], ["dob", "30-12-2000"], ["gender", nil], ["address", "indore"], ["created_at", "2023-11-25 12:34:13.907055"], ["updated_at", "2023-11-25 12:34:13.907055"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBooking Create (0.7ms)[0m  [1m[32mINSERT INTO "bookings" ("booking_process", "payment_option", "security", "rating", "created_at", "updated_at", "user_id", "bike_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["booking_process", "in person"], ["payment_option", "cash"], ["security", "secure"], ["rating", "4"], ["created_at", "2023-11-25 12:34:35.285816"], ["updated_at", "2023-11-25 12:34:35.285816"], ["user_id", 1], ["bike_id", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBooking Create (0.8ms)[0m  [1m[32mINSERT INTO "bookings" ("booking_process", "payment_option", "security", "rating", "created_at", "updated_at", "user_id", "bike_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["booking_process", "in person"], ["payment_option", "cash"], ["security", "secure"], ["rating", "4"], ["created_at", "2023-11-25 12:35:10.531342"], ["updated_at", "2023-11-25 12:35:10.531342"], ["user_id", 1], ["bike_id", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/bookings" for ::1 at 2023-11-25 18:06:47 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BookingsController#index as */*
+  [1m[36mBooking Load (0.2ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings"[0m
+  ↳ app/controllers/bookings_controller.rb:7:in `index'
+Completed 200 OK in 126ms (Views: 93.1ms | ActiveRecord: 3.6ms | Allocations: 136853)
+
+
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/bookings/1" for ::1 at 2023-11-26 11:57:50 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BookingsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBooking Load (0.3ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:11:in `show'
+Completed 200 OK in 124ms (Views: 1.3ms | ActiveRecord: 3.8ms | Allocations: 142282)
+
+
+Started POST "/bookings" for ::1 at 2023-11-26 11:59:51 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>1, "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bookings_controller.rb:17:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:17:in `create'
+  [1m[36mBike Load (0.5ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:17:in `create'
+  [1m[36mBooking Create (0.6ms)[0m  [1m[32mINSERT INTO "bookings" ("booking_process", "payment_option", "security", "rating", "created_at", "updated_at", "user_id", "bike_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["booking_process", "phone"], ["payment_option", "cash"], ["security", "secure"], ["rating", "5"], ["created_at", "2023-11-26 06:29:52.010503"], ["updated_at", "2023-11-26 06:29:52.010503"], ["user_id", 1], ["bike_id", 1]]
+  ↳ app/controllers/bookings_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bookings_controller.rb:17:in `create'
+Completed 200 OK in 208ms (Views: 0.8ms | ActiveRecord: 8.4ms | Allocations: 159281)
+
+
+Started PUT "/bookings/1" for ::1 at 2023-11-26 12:01:01 +0530
+Processing by BookingsController#update as */*
+  Parameters: {"booking_process"=>"in person", "payment_option"=>"online", "security"=>"secure", "rating"=>"4", "user_id"=>1, "bike_id"=>1, "id"=>"1", "booking"=>{"booking_process"=>"in person", "payment_option"=>"online", "security"=>"secure", "rating"=>"4", "user_id"=>1, "bike_id"=>1}}
+  [1m[36mBooking Load (0.3ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:25:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bookings_controller.rb:26:in `update'
+  [1m[36mBooking Update (2.7ms)[0m  [1m[33mUPDATE "bookings" SET "payment_option" = ?, "updated_at" = ? WHERE "bookings"."id" = ?[0m  [["payment_option", "online"], ["updated_at", "2023-11-26 06:31:01.864337"], ["id", 1]]
+  ↳ app/controllers/bookings_controller.rb:26:in `update'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bookings_controller.rb:26:in `update'
+Completed 200 OK in 22ms (Views: 0.8ms | ActiveRecord: 3.5ms | Allocations: 2775)
+
+
+Started DELETE "/bookings/3" for ::1 at 2023-11-26 12:02:02 +0530
+Processing by BookingsController#destroy as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mBooking Load (0.4ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:34:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bookings_controller.rb:35:in `destroy'
+  [1m[36mBooking Destroy (1.8ms)[0m  [1m[31mDELETE FROM "bookings" WHERE "bookings"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/bookings_controller.rb:35:in `destroy'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bookings_controller.rb:35:in `destroy'
+Completed 200 OK in 10ms (Views: 0.5ms | ActiveRecord: 2.9ms | Allocations: 2173)
+
+
+Started DELETE "/bookings/3" for ::1 at 2023-11-26 12:02:07 +0530
+Processing by BookingsController#destroy as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mBooking Load (0.2ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:34:in `destroy'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.1ms | Allocations: 964)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Booking with 'id'=3):
+  
+app/controllers/bookings_controller.rb:34:in `destroy'
+Started GET "/users" for ::1 at 2023-11-26 15:37:12 +0530
+Processing by UsersController#index as */*
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7:in `index'
+Completed 200 OK in 9ms (Views: 4.0ms | ActiveRecord: 3.2ms | Allocations: 1209)
+
+
+Started GET "/users/1" for ::1 at 2023-11-26 15:38:13 +0530
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 5ms (Views: 0.7ms | ActiveRecord: 0.3ms | Allocations: 1295)
+
+
+Started GET "/users/1" for ::1 at 2023-11-26 15:38:37 +0530
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.2ms | Allocations: 679)
+
+
+Started POST "/users" for ::1 at 2023-11-26 15:40:14 +0530
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rohit sharma", "email"=>"rohit@gmail.com", "contact"=>"3456788765", "dob"=>"30-12-2000", "gender"=>"male", "address"=>"indore", "user"=>{"username"=>"rohit sharma", "email"=>"rohit@gmail.com", "contact"=>"3456788765", "dob"=>"30-12-2000", "gender"=>"male", "address"=>"indore"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Create (2.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "contact", "dob", "gender", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["username", "rohit sharma"], ["email", "rohit@gmail.com"], ["contact", "3456788765"], ["dob", "30-12-2000"], ["gender", "male"], ["address", "indore"], ["created_at", "2023-11-26 10:10:14.205105"], ["updated_at", "2023-11-26 10:10:14.205105"]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+Completed 200 OK in 13ms (Views: 0.8ms | ActiveRecord: 5.9ms | Allocations: 2336)
+
+
+Started GET "/users/1" for ::1 at 2023-11-26 15:41:58 +0530
+Processing by UsersController#show as */*
+  Parameters: {"username"=>"rohit sharma", "email"=>"rohit@gmail.com", "contact"=>"3456788765", "dob"=>"30-12-2000", "gender"=>"female", "address"=>"indore", "id"=>"1", "user"=>{"username"=>"rohit sharma", "email"=>"rohit@gmail.com", "contact"=>"3456788765", "dob"=>"30-12-2000", "gender"=>"female", "address"=>"indore"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 4ms (Views: 0.9ms | ActiveRecord: 0.2ms | Allocations: 679)
+
+
+Started PUT "/users/1" for ::1 at 2023-11-26 15:42:15 +0530
+Processing by UsersController#update as */*
+  Parameters: {"username"=>"rohit sharma", "email"=>"rohit@gmail.com", "contact"=>"3456788765", "dob"=>"30-12-2000", "gender"=>"female", "address"=>"indore", "id"=>"1", "user"=>{"username"=>"rohit sharma", "email"=>"rohit@gmail.com", "contact"=>"3456788765", "dob"=>"30-12-2000", "gender"=>"female", "address"=>"indore"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:26:in `update'
+  [1m[36mUser Update (3.0ms)[0m  [1m[33mUPDATE "users" SET "gender" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["gender", "female"], ["updated_at", "2023-11-26 10:12:15.931608"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:26:in `update'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:26:in `update'
+Completed 200 OK in 19ms (Views: 1.3ms | ActiveRecord: 3.6ms | Allocations: 2710)
+
+
+Started DELETE "/users/2" for ::1 at 2023-11-26 15:42:57 +0530
+Processing by UsersController#destroy as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:34:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:35:in `destroy'
+  [1m[36mUser Destroy (1.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/users_controller.rb:35:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:35:in `destroy'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.8ms | Allocations: 2108)
+
+
+Started DELETE "/users/2" for ::1 at 2023-11-26 15:43:00 +0530
+Processing by UsersController#destroy as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:34:in `destroy'
+Completed 404 Not Found in 4ms (ActiveRecord: 0.2ms | Allocations: 950)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=2):
+  
+app/controllers/users_controller.rb:34:in `destroy'
+Started GET "/users/1" for ::1 at 2023-11-26 15:59:00 +0530
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:50:in `set_user'
+Completed 200 OK in 27ms (Views: 0.8ms | ActiveRecord: 3.4ms | Allocations: 8081)
+
+
+Started GET "/bookings/1" for ::1 at 2023-11-26 15:59:16 +0530
+Processing by BookingsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBooking Load (0.4ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:50:in `set_booking'
+Completed 200 OK in 29ms (Views: 0.8ms | ActiveRecord: 0.4ms | Allocations: 7816)
+
+
+Started GET "/bikes/1" for ::1 at 2023-11-26 15:59:28 +0530
+Processing by BikesController#show as */*
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.0ms | Allocations: 7398)
+
+
+  
+NameError (undefined local variable or method `price' for Bike:Class
+Did you mean?  private):
+  
+app/models/bike.rb:5:in `<class:Bike>'
+app/models/bike.rb:1:in `<main>'
+app/controllers/bikes_controller.rb:50:in `set_bike'
+Started GET "/bikes/1" for ::1 at 2023-11-26 16:00:35 +0530
+Processing by BikesController#show as */*
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.0ms | Allocations: 7476)
+
+
+  
+NameError (undefined local variable or method `price' for Bike:Class
+Did you mean?  private):
+  
+app/models/bike.rb:5:in `<class:Bike>'
+app/models/bike.rb:1:in `<main>'
+app/controllers/bikes_controller.rb:50:in `set_bike'
+Started GET "/bikes/1" for ::1 at 2023-11-26 16:01:39 +0530
+Processing by BikesController#show as */*
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.0ms | Allocations: 7495)
+
+
+  
+NameError (undefined local variable or method `price' for Bike:Class
+Did you mean?  private):
+  
+app/models/bike.rb:5:in `<class:Bike>'
+app/models/bike.rb:1:in `<main>'
+app/controllers/bikes_controller.rb:50:in `set_bikes'
+Started GET "/bikes/1" for ::1 at 2023-11-26 16:03:45 +0530
+Processing by BikesController#show as */*
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms | Allocations: 7485)
+
+
+  
+NameError (undefined local variable or method `price' for Bike:Class
+Did you mean?  private):
+  
+app/models/bike.rb:5:in `<class:Bike>'
+app/models/bike.rb:1:in `<main>'
+app/controllers/bikes_controller.rb:50:in `set_bike'
+Started GET "/bikes/1" for ::1 at 2023-11-26 16:04:55 +0530
+Processing by BikesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBike Load (0.4ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bikes_controller.rb:50:in `set_bike'
+Completed 200 OK in 40ms (Views: 1.1ms | ActiveRecord: 4.3ms | Allocations: 8357)
+
+
+Started POST "/users" for ::1 at 2023-11-27 10:13:48 +0530
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rohit sharma", "email"=>"rohit@gmail.com", "contact"=>"3456788765", "dob"=>"30-12-2000", "gender"=>"male", "address"=>"indore", "user"=>{"username"=>"rohit sharma", "email"=>"rohit@gmail.com", "contact"=>"3456788765", "dob"=>"30-12-2000", "gender"=>"male", "address"=>"indore"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[36mUser Create (2.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "contact", "dob", "gender", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["username", "rohit sharma"], ["email", "rohit@gmail.com"], ["contact", "3456788765"], ["dob", "30-12-2000"], ["gender", "male"], ["address", "indore"], ["created_at", "2023-11-27 04:43:48.210771"], ["updated_at", "2023-11-27 04:43:48.210771"]]
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:19:in `create'
+Completed 200 OK in 18ms (Views: 0.8ms | ActiveRecord: 11.6ms | Allocations: 5895)
+
+
+Started DELETE "/users/2" for ::1 at 2023-11-27 10:13:55 +0530
+Processing by UsersController#destroy as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:50:in `set_user'
+Completed 404 Not Found in 6ms (ActiveRecord: 0.2ms | Allocations: 1580)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=2):
+  
+app/controllers/users_controller.rb:50:in `set_user'
+Started DELETE "/users/2" for ::1 at 2023-11-27 10:15:14 +0530
+Processing by UsersController#destroy as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:50:in `set_user'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.1ms | Allocations: 963)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=2):
+  
+app/controllers/users_controller.rb:50:in `set_user'
+Started POST "/bike/1bookings" for ::1 at 2023-11-27 12:20:10 +0530
+  
+ActionController::RoutingError (No route matches [POST] "/bike/1bookings"):
+  
+Started POST "/bike/1/bookings" for ::1 at 2023-11-27 12:20:23 +0530
+  
+ActionController::RoutingError (No route matches [POST] "/bike/1/bookings"):
+  
+Started POST "/bike/1/bookings" for ::1 at 2023-11-27 12:20:59 +0530
+  
+ActionController::RoutingError (No route matches [POST] "/bike/1/bookings"):
+  
+Started POST "/bikes/1/bookings" for ::1 at 2023-11-27 12:21:59 +0530
+  
+NoMethodError (undefined method `before_create' for BookingsController:Class
+Did you mean?  before_action):
+  
+app/controllers/bookings_controller.rb:7:in `<class:BookingsController>'
+app/controllers/bookings_controller.rb:1:in `<main>'
+Started POST "/bikes/1/bookings" for ::1 at 2023-11-27 12:23:17 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"1", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"1"}}
+Completed 404 Not Found in 4ms (ActiveRecord: 1.6ms | Allocations: 3330)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Bike without an ID):
+  
+app/controllers/bookings_controller.rb:56:in `check_bike_availability'
+Started POST "/bikes/1/bookings" for ::1 at 2023-11-27 12:32:02 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"1", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"1"}}
+Completed 404 Not Found in 6ms (ActiveRecord: 0.0ms | Allocations: 3355)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Bike without an ID):
+  
+app/controllers/bookings_controller.rb:56:in `check_bike_availability'
+Started POST "/bikes/1/bookings" for ::1 at 2023-11-27 12:34:21 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"1", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"1"}}
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:56:in `check_bike_availability'
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 2.1ms | Allocations: 7187)
+
+
+  
+NameError (undefined local variable or method `bike' for #<BookingsController:0x00000000047d88>
+Did you mean?  @bike):
+  
+app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+Started POST "/bikes/1/bookings" for ::1 at 2023-11-27 12:35:02 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"1", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"1"}}
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:56:in `check_bike_availability'
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 2.1ms | Allocations: 4788)
+
+
+  
+NoMethodError (undefined method `booked?' for nil:NilClass):
+  
+app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+Started POST "/bikes/1/bookings" for ::1 at 2023-11-27 12:37:13 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"1", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"1"}}
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:56:in `check_bike_availability'
+Filter chain halted as :check_bike_availability rendered or redirected
+Completed 404 Not Found in 10ms (Views: 0.4ms | ActiveRecord: 2.1ms | Allocations: 4125)
+
+
+Started GET "/bikes/" for ::1 at 2023-11-27 12:37:32 +0530
+Processing by BikesController#index as */*
+  [1m[36mBike Load (0.4ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes"[0m
+  ↳ app/controllers/bikes_controller.rb:9:in `index'
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.6ms | Allocations: 4163)
+
+
+Started POST "/bikes/1/bookings" for ::1 at 2023-11-27 12:38:41 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"1", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"1"}}
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:56:in `check_bike_availability'
+Filter chain halted as :check_bike_availability rendered or redirected
+Completed 404 Not Found in 8ms (Views: 0.2ms | ActiveRecord: 3.5ms | Allocations: 4111)
+
+
+Started POST "/bikes/1/bookings" for ::1 at 2023-11-27 12:39:02 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"1", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"1"}}
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:56:in `check_bike_availability'
+Filter chain halted as :check_bike_availability rendered or redirected
+Completed 404 Not Found in 3ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 762)
+
+
+Started POST "/bikes/1/bookings" for ::1 at 2023-11-27 12:52:52 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"1", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"1"}}
+  [1m[36mBike Load (0.9ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:56:in `check_bike_availability'
+Filter chain halted as :check_bike_availability rendered or redirected
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.4ms | Allocations: 4001)
+
+
+Started POST "/bikes/1/bookings" for ::1 at 2023-11-27 12:53:28 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"1", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"1"}}
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 2.2ms | Allocations: 3168)
+
+
+  
+NameError (undefined local variable or method `byebug' for #<BookingsController:0x0000000006b198>):
+  
+app/controllers/bookings_controller.rb:56:in `check_bike_availability'
+Started POST "/bikes/1/bookings" for ::1 at 2023-11-27 12:54:20 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"1", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"1"}}
+Started POST "/bikes/1/bookings" for ::1 at 2023-11-27 12:55:31 +0530
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+Filter chain halted as :check_bike_availability rendered or redirected
+Completed 200 OK in 71302ms (Views: 0.2ms | ActiveRecord: 2.8ms | Allocations: 138645)
+
+
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"1", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"1"}}
+  [1m[36mBike Load (0.4ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 2.5ms | Allocations: 10505)
+
+
+  
+NoMethodError (undefined method `booked?' for #<Bike id: 1, name: "ns-125", model_no: "23", price: "1,30,000", color: "red", lighting: "LED", created_at: "2023-11-25 12:20:50.478153000 +0000", updated_at: "2023-11-25 12:20:50.478153000 +0000">):
+  
+app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+Started POST "/bikes/1/bookings" for ::1 at 2023-11-27 12:55:36 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"1", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"1"}}
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.1ms | Allocations: 3426)
+
+
+  
+NoMethodError (undefined method `booked?' for #<Bike id: 1, name: "ns-125", model_no: "23", price: "1,30,000", color: "red", lighting: "LED", created_at: "2023-11-25 12:20:50.478153000 +0000", updated_at: "2023-11-25 12:20:50.478153000 +0000">):
+  
+app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+Started POST "/bikes/1/bookings" for ::1 at 2023-11-27 12:56:29 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"1", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"1"}}
+  [1m[36mBike Load (0.2ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ (rdbg)//home/rails/Desktop/task_24_nov/bikebookingsystem/app/controllers/bookings_controller.rb:1:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 1], ["LIMIT", 1]]
+  ↳ (rdbg)//home/rails/Desktop/task_24_nov/bikebookingsystem/app/controllers/bookings_controller.rb:1:in `check_bike_availability'
+  [1m[36mCACHE Bike Load (0.0ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+Completed 500 Internal Server Error in 203371ms (ActiveRecord: 3.1ms | Allocations: 185346)
+
+
+  
+NoMethodError (undefined method `booked?' for #<Bike id: 1, name: "ns-125", model_no: "23", price: "1,30,000", color: "red", lighting: "LED", created_at: "2023-11-25 12:20:50.478153000 +0000", updated_at: "2023-11-25 12:20:50.478153000 +0000">):
+  
+app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+Started POST "/bikes/1/bookings" for ::1 at 2023-11-27 12:59:58 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"1", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"1"}}
+  [1m[36mBike Load (0.2ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+Filter chain halted as :check_bike_availability rendered or redirected
+Completed 200 OK in 21ms (Views: 0.3ms | ActiveRecord: 4.0ms | Allocations: 9275)
+
+
+Started POST "/bikes/2/bookings" for ::1 at 2023-11-27 13:00:12 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"2", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"2"}}
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+Filter chain halted as :check_bike_availability rendered or redirected
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 645)
+
+
+Started POST "/bikes/" for ::1 at 2023-11-27 13:01:18 +0530
+Processing by BikesController#create as */*
+  Parameters: {"name"=>"ns-125", "model_no"=>"23", "price"=>"1,30,000", "color"=>"red", "lighting"=>"LED", "bike"=>{"name"=>"ns-125", "model_no"=>"23", "price"=>"1,30,000", "color"=>"red", "lighting"=>"LED"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+  [1m[36mBike Exists? (3.3ms)[0m  [1m[34mSELECT 1 AS one FROM "bikes" WHERE "bikes"."model_no" = ? LIMIT ?[0m  [["model_no", "23"], ["LIMIT", 1]]
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+Completed 200 OK in 13ms (Views: 1.9ms | ActiveRecord: 3.6ms | Allocations: 3441)
+
+
+Started POST "/bikes/" for ::1 at 2023-11-27 13:01:27 +0530
+Processing by BikesController#create as */*
+  Parameters: {"name"=>"ns-125", "model_no"=>"13", "price"=>"1,30,000", "color"=>"red", "lighting"=>"LED", "bike"=>{"name"=>"ns-125", "model_no"=>"13", "price"=>"1,30,000", "color"=>"red", "lighting"=>"LED"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+  [1m[36mBike Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "bikes" WHERE "bikes"."model_no" = ? LIMIT ?[0m  [["model_no", "13"], ["LIMIT", 1]]
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+  [1m[36mBike Create (1.3ms)[0m  [1m[32mINSERT INTO "bikes" ("name", "model_no", "price", "color", "lighting", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "ns-125"], ["model_no", "13"], ["price", "1,30,000"], ["color", "red"], ["lighting", "LED"], ["created_at", "2023-11-27 07:31:27.226715"], ["updated_at", "2023-11-27 07:31:27.226715"]]
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+Completed 200 OK in 15ms (Views: 0.4ms | ActiveRecord: 6.0ms | Allocations: 2952)
+
+
+Started POST "/bikes/2/bookings" for ::1 at 2023-11-27 13:01:34 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"2", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"2"}}
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBooking Create (0.3ms)[0m  [1m[32mINSERT INTO "bookings" ("booking_process", "payment_option", "security", "rating", "created_at", "updated_at", "user_id", "bike_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["booking_process", "phone"], ["payment_option", "cash"], ["security", "secure"], ["rating", "5"], ["created_at", "2023-11-27 07:31:34.687717"], ["updated_at", "2023-11-27 07:31:34.687717"], ["user_id", 1], ["bike_id", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+Completed 200 OK in 45ms (Views: 0.5ms | ActiveRecord: 3.5ms | Allocations: 17494)
+
+
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddColumnsToBookings (20231127073535)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "bookings" ADD "start_time" varchar[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "bookings" ADD "end_time" varchar[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "bookings" ADD "status" varchar[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231127073535') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/bikes/2/bookings" for ::1 at 2023-11-27 13:08:45 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"2", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"2"}}
+  [1m[36mBike Load (0.2ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBooking Create (0.2ms)[0m  [1m[32mINSERT INTO "bookings" ("booking_process", "payment_option", "security", "rating", "created_at", "updated_at", "user_id", "bike_id", "start_time", "end_time", "status") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["booking_process", "phone"], ["payment_option", "cash"], ["security", "secure"], ["rating", "5"], ["created_at", "2023-11-27 07:38:46.317830"], ["updated_at", "2023-11-27 07:38:46.317830"], ["user_id", 1], ["bike_id", 1], ["start_time", nil], ["end_time", nil], ["status", nil]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+Completed 200 OK in 298ms (Views: 0.4ms | ActiveRecord: 9.7ms | Allocations: 323557)
+
+
+Started POST "/bikes/2/bookings" for ::1 at 2023-11-27 13:09:01 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"2", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"2"}}
+  [1m[36mBike Load (0.2ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBooking Create (0.3ms)[0m  [1m[32mINSERT INTO "bookings" ("booking_process", "payment_option", "security", "rating", "created_at", "updated_at", "user_id", "bike_id", "start_time", "end_time", "status") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["booking_process", "phone"], ["payment_option", "cash"], ["security", "secure"], ["rating", "5"], ["created_at", "2023-11-27 07:39:01.468571"], ["updated_at", "2023-11-27 07:39:01.468571"], ["user_id", 1], ["bike_id", 1], ["start_time", nil], ["end_time", nil], ["status", nil]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+Completed 200 OK in 15ms (Views: 0.5ms | ActiveRecord: 2.2ms | Allocations: 4942)
+
+
+Started POST "/bikes/2/bookings" for ::1 at 2023-11-27 13:09:53 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"2", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"2"}}
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+Filter chain halted as :check_bike_availability rendered or redirected
+Completed 200 OK in 17ms (Views: 0.4ms | ActiveRecord: 3.0ms | Allocations: 9246)
+
+
+Started POST "/bikes/2/bookings" for ::1 at 2023-11-27 13:10:45 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"2", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"2"}}
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+Filter chain halted as :check_bike_availability rendered or redirected
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1322)
+
+
+Started DELETE "/bookings/3" for ::1 at 2023-11-27 13:10:53 +0530
+Processing by BookingsController#destroy as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mBooking Load (0.2ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:52:in `set_booking'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.2ms | Allocations: 1578)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Booking with 'id'=3):
+  
+app/controllers/bookings_controller.rb:52:in `set_booking'
+Started DELETE "/bookings/4" for ::1 at 2023-11-27 13:11:00 +0530
+Processing by BookingsController#destroy as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mBooking Load (0.1ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:52:in `set_booking'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bookings_controller.rb:39:in `destroy'
+  [1m[36mBooking Destroy (1.1ms)[0m  [1m[31mDELETE FROM "bookings" WHERE "bookings"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/bookings_controller.rb:39:in `destroy'
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bookings_controller.rb:39:in `destroy'
+Completed 200 OK in 13ms (Views: 0.3ms | ActiveRecord: 4.2ms | Allocations: 6504)
+
+
+Started DELETE "/bookings/4" for ::1 at 2023-11-27 13:11:03 +0530
+Processing by BookingsController#destroy as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mBooking Load (0.1ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:52:in `set_booking'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms | Allocations: 964)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Booking with 'id'=4):
+  
+app/controllers/bookings_controller.rb:52:in `set_booking'
+Started DELETE "/bookings/5" for ::1 at 2023-11-27 13:11:10 +0530
+Processing by BookingsController#destroy as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mBooking Load (0.1ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:52:in `set_booking'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bookings_controller.rb:39:in `destroy'
+  [1m[36mBooking Destroy (1.2ms)[0m  [1m[31mDELETE FROM "bookings" WHERE "bookings"."id" = ?[0m  [["id", 5]]
+  ↳ app/controllers/bookings_controller.rb:39:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bookings_controller.rb:39:in `destroy'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.5ms | Allocations: 2103)
+
+
+Started DELETE "/bookings/6" for ::1 at 2023-11-27 13:11:13 +0530
+Processing by BookingsController#destroy as */*
+  Parameters: {"id"=>"6"}
+  [1m[36mBooking Load (0.1ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:52:in `set_booking'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bookings_controller.rb:39:in `destroy'
+  [1m[36mBooking Destroy (1.4ms)[0m  [1m[31mDELETE FROM "bookings" WHERE "bookings"."id" = ?[0m  [["id", 6]]
+  ↳ app/controllers/bookings_controller.rb:39:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bookings_controller.rb:39:in `destroy'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 1.7ms | Allocations: 2108)
+
+
+Started DELETE "/bookings/7" for ::1 at 2023-11-27 13:11:16 +0530
+Processing by BookingsController#destroy as */*
+  Parameters: {"id"=>"7"}
+  [1m[36mBooking Load (0.1ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:52:in `set_booking'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms | Allocations: 964)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Booking with 'id'=7):
+  
+app/controllers/bookings_controller.rb:52:in `set_booking'
+Started POST "/bikes/2/bookings" for ::1 at 2023-11-27 13:11:23 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"2", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"2"}}
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+Filter chain halted as :check_bike_availability rendered or redirected
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 1302)
+
+
+Started POST "/bikes/2/bookings" for ::1 at 2023-11-27 13:13:05 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"2", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"2"}}
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+Filter chain halted as :check_bike_availability rendered or redirected
+Completed 200 OK in 14ms (Views: 0.3ms | ActiveRecord: 2.6ms | Allocations: 9291)
+
+
+Started POST "/user/2/bookings" for ::1 at 2023-11-27 13:13:27 +0530
+  
+ActionController::RoutingError (No route matches [POST] "/user/2/bookings"):
+  
+Started POST "/users/2/bookings" for ::1 at 2023-11-27 13:13:31 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>"2", "bike_id"=>1, "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>"2", "bike_id"=>1}}
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+Filter chain halted as :check_bike_availability rendered or redirected
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1306)
+
+
+Started POST "/users/1/bookings" for ::1 at 2023-11-27 13:14:00 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>"1", "bike_id"=>1, "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>"1", "bike_id"=>1}}
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+Filter chain halted as :check_bike_availability rendered or redirected
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 1304)
+
+
+Started POST "/users/4/bookings" for ::1 at 2023-11-27 13:14:04 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>"4", "bike_id"=>1, "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>"4", "bike_id"=>1}}
+  [1m[36mBike Load (0.3ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+Filter chain halted as :check_bike_availability rendered or redirected
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 1304)
+
+
+Started POST "/bikes/2/bookings" for ::1 at 2023-11-27 13:14:20 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"2", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"2"}}
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+Filter chain halted as :check_bike_availability rendered or redirected
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1303)
+
+
+Started POST "/bikes/6/bookings" for ::1 at 2023-11-27 13:14:25 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"6", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"6"}}
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+Filter chain halted as :check_bike_availability rendered or redirected
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 645)
+
+
+Started POST "/bikes/" for ::1 at 2023-11-27 13:31:23 +0530
+Processing by BikesController#create as */*
+  Parameters: {"name"=>"ns-125", "model_no"=>"13", "price"=>"1,000", "color"=>"red", "lighting"=>"LED", "bike"=>{"name"=>"ns-125", "model_no"=>"13", "price"=>"1,000", "color"=>"red", "lighting"=>"LED"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+  [1m[36mBike Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "bikes" WHERE "bikes"."model_no" = ? LIMIT ?[0m  [["model_no", "13"], ["LIMIT", 1]]
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+Completed 200 OK in 6ms (Views: 1.2ms | ActiveRecord: 2.4ms | Allocations: 3679)
+
+
+Started POST "/bikes/" for ::1 at 2023-11-27 13:31:32 +0530
+Processing by BikesController#create as */*
+  Parameters: {"name"=>"ns-125", "model_no"=>"63", "price"=>"1,000", "color"=>"red", "lighting"=>"LED", "bike"=>{"name"=>"ns-125", "model_no"=>"63", "price"=>"1,000", "color"=>"red", "lighting"=>"LED"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+  [1m[36mBike Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "bikes" WHERE "bikes"."model_no" = ? LIMIT ?[0m  [["model_no", "63"], ["LIMIT", 1]]
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+  [1m[36mBike Create (0.3ms)[0m  [1m[32mINSERT INTO "bikes" ("name", "model_no", "price", "color", "lighting", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "ns-125"], ["model_no", "63"], ["price", "1,000"], ["color", "red"], ["lighting", "LED"], ["created_at", "2023-11-27 08:01:32.945843"], ["updated_at", "2023-11-27 08:01:32.945843"]]
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+Completed 200 OK in 14ms (Views: 0.6ms | ActiveRecord: 6.0ms | Allocations: 2958)
+
+
+Started POST "/bikes/3/bookings" for ::1 at 2023-11-27 13:33:21 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed", "rating"=>"5", "user_id"=>1, "bike_id"=>"3", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"3", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed"}}
+  [1m[36mBike Load (0.9ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+Filter chain halted as :check_bike_availability rendered or redirected
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 1.1ms | Allocations: 1340)
+
+
+Started POST "/bikes/3/bookings" for ::1 at 2023-11-27 13:34:03 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed", "rating"=>"5", "user_id"=>1, "bike_id"=>"3", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"3", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed"}}
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBooking Create (0.2ms)[0m  [1m[32mINSERT INTO "bookings" ("booking_process", "payment_option", "security", "rating", "created_at", "updated_at", "user_id", "bike_id", "start_time", "end_time", "status") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["booking_process", "phone"], ["payment_option", "cash"], ["security", "secure"], ["rating", "5"], ["created_at", "2023-11-27 08:04:03.445511"], ["updated_at", "2023-11-27 08:04:03.445511"], ["user_id", 1], ["bike_id", 1], ["start_time", "12:00 pm"], ["end_time", "04:00 pm"], ["status", "conformed"]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+Completed 200 OK in 43ms (Views: 0.4ms | ActiveRecord: 7.0ms | Allocations: 26354)
+
+
+Started POST "/bikes/3/bookings" for ::1 at 2023-11-27 13:34:11 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed", "rating"=>"5", "user_id"=>1, "bike_id"=>"3", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"3", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed"}}
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBooking Create (0.2ms)[0m  [1m[32mINSERT INTO "bookings" ("booking_process", "payment_option", "security", "rating", "created_at", "updated_at", "user_id", "bike_id", "start_time", "end_time", "status") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["booking_process", "phone"], ["payment_option", "cash"], ["security", "secure"], ["rating", "5"], ["created_at", "2023-11-27 08:04:11.293551"], ["updated_at", "2023-11-27 08:04:11.293551"], ["user_id", 1], ["bike_id", 1], ["start_time", "12:00 pm"], ["end_time", "04:00 pm"], ["status", "conformed"]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+Completed 200 OK in 11ms (Views: 0.4ms | ActiveRecord: 2.0ms | Allocations: 4964)
+
+
+Started POST "/bikes/3/bookings" for ::1 at 2023-11-27 13:34:48 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed", "rating"=>"5", "user_id"=>1, "bike_id"=>"3", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"3", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed"}}
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBooking Create (0.3ms)[0m  [1m[32mINSERT INTO "bookings" ("booking_process", "payment_option", "security", "rating", "created_at", "updated_at", "user_id", "bike_id", "start_time", "end_time", "status") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["booking_process", "phone"], ["payment_option", "cash"], ["security", "secure"], ["rating", "5"], ["created_at", "2023-11-27 08:04:48.644239"], ["updated_at", "2023-11-27 08:04:48.644239"], ["user_id", 1], ["bike_id", 1], ["start_time", "12:00 pm"], ["end_time", "04:00 pm"], ["status", "conformed"]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+Completed 200 OK in 15ms (Views: 0.6ms | ActiveRecord: 2.2ms | Allocations: 4953)
+
+
+Started POST "/bikes/2/bookings" for ::1 at 2023-11-27 13:34:57 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed", "rating"=>"5", "user_id"=>1, "bike_id"=>"2", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"2", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed"}}
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBike Load (0.0ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBooking Create (0.2ms)[0m  [1m[32mINSERT INTO "bookings" ("booking_process", "payment_option", "security", "rating", "created_at", "updated_at", "user_id", "bike_id", "start_time", "end_time", "status") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["booking_process", "phone"], ["payment_option", "cash"], ["security", "secure"], ["rating", "5"], ["created_at", "2023-11-27 08:04:57.822433"], ["updated_at", "2023-11-27 08:04:57.822433"], ["user_id", 1], ["bike_id", 1], ["start_time", "12:00 pm"], ["end_time", "04:00 pm"], ["status", "conformed"]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+Completed 200 OK in 12ms (Views: 0.4ms | ActiveRecord: 2.1ms | Allocations: 4953)
+
+
+Started POST "/bikes/2/bookings" for ::1 at 2023-11-27 13:35:20 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed", "rating"=>"5", "user_id"=>1, "bike_id"=>"2", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"2", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed"}}
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+Filter chain halted as :check_bike_availability rendered or redirected
+Completed 200 OK in 18ms (Views: 0.3ms | ActiveRecord: 2.6ms | Allocations: 9212)
+
+
+Started POST "/bikes/2/bookings" for ::1 at 2023-11-27 13:39:37 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed", "rating"=>"5", "user_id"=>1, "bike_id"=>"2", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"2", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed"}}
+  [1m[36mBike Load (0.2ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBooking Create (0.2ms)[0m  [1m[32mINSERT INTO "bookings" ("booking_process", "payment_option", "security", "rating", "created_at", "updated_at", "user_id", "bike_id", "start_time", "end_time", "status") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["booking_process", "phone"], ["payment_option", "cash"], ["security", "secure"], ["rating", "5"], ["created_at", "2023-11-27 08:09:37.232150"], ["updated_at", "2023-11-27 08:09:37.232150"], ["user_id", 1], ["bike_id", 1], ["start_time", "12:00 pm"], ["end_time", "04:00 pm"], ["status", "conformed"]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+Completed 200 OK in 54ms (Views: 0.8ms | ActiveRecord: 7.1ms | Allocations: 26396)
+
+
+Started POST "/bikes/2/bookings" for ::1 at 2023-11-27 13:40:38 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed", "rating"=>"5", "user_id"=>1, "bike_id"=>"2", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"2", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed"}}
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+Filter chain halted as :check_bike_availability rendered or redirected
+Completed 200 OK in 15ms (Views: 0.2ms | ActiveRecord: 3.2ms | Allocations: 9212)
+
+
+Started POST "/bikes/3/bookings" for ::1 at 2023-11-27 13:40:46 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed", "rating"=>"5", "user_id"=>1, "bike_id"=>"3", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"3", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed"}}
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+Filter chain halted as :check_bike_availability rendered or redirected
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 1306)
+
+
+Started POST "/bikes/6/bookings" for ::1 at 2023-11-27 13:40:52 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed", "rating"=>"5", "user_id"=>1, "bike_id"=>"6", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"6", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed"}}
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+Filter chain halted as :check_bike_availability rendered or redirected
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 645)
+
+
+Started POST "/bikes/" for ::1 at 2023-11-27 13:41:04 +0530
+Processing by BikesController#create as */*
+  Parameters: {"name"=>"ns-125", "model_no"=>"63", "price"=>"1,000", "color"=>"red", "lighting"=>"LED", "bike"=>{"name"=>"ns-125", "model_no"=>"63", "price"=>"1,000", "color"=>"red", "lighting"=>"LED"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+  [1m[36mBike Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "bikes" WHERE "bikes"."model_no" = ? LIMIT ?[0m  [["model_no", "63"], ["LIMIT", 1]]
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+Completed 200 OK in 8ms (Views: 0.7ms | ActiveRecord: 1.7ms | Allocations: 3226)
+
+
+Started POST "/bikes/" for ::1 at 2023-11-27 13:41:10 +0530
+Processing by BikesController#create as */*
+  Parameters: {"name"=>"ns-125", "model_no"=>"03", "price"=>"1,000", "color"=>"red", "lighting"=>"LED", "bike"=>{"name"=>"ns-125", "model_no"=>"03", "price"=>"1,000", "color"=>"red", "lighting"=>"LED"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+  [1m[36mBike Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "bikes" WHERE "bikes"."model_no" = ? LIMIT ?[0m  [["model_no", "03"], ["LIMIT", 1]]
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+  [1m[36mBike Create (0.2ms)[0m  [1m[32mINSERT INTO "bikes" ("name", "model_no", "price", "color", "lighting", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "ns-125"], ["model_no", "03"], ["price", "1,000"], ["color", "red"], ["lighting", "LED"], ["created_at", "2023-11-27 08:11:10.927150"], ["updated_at", "2023-11-27 08:11:10.927150"]]
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+Completed 200 OK in 34ms (Views: 0.7ms | ActiveRecord: 5.1ms | Allocations: 2937)
+
+
+Started POST "/bikes/4/bookings" for ::1 at 2023-11-27 13:41:20 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed", "rating"=>"5", "user_id"=>1, "bike_id"=>"4", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"4", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed"}}
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+Filter chain halted as :check_bike_availability rendered or redirected
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1303)
+
+
+Started POST "/bikes/4/bookings" for ::1 at 2023-11-27 13:50:35 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed", "rating"=>"5", "user_id"=>1, "bike_id"=>"4", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"4", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed"}}
+  [1m[36mBike Load (1.0ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBooking Create (0.2ms)[0m  [1m[32mINSERT INTO "bookings" ("booking_process", "payment_option", "security", "rating", "created_at", "updated_at", "user_id", "bike_id", "start_time", "end_time", "status") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["booking_process", "phone"], ["payment_option", "cash"], ["security", "secure"], ["rating", "5"], ["created_at", "2023-11-27 08:20:36.167206"], ["updated_at", "2023-11-27 08:20:36.167206"], ["user_id", 1], ["bike_id", 1], ["start_time", "12:00 pm"], ["end_time", "04:00 pm"], ["status", "conformed"]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+Completed 200 OK in 43ms (Views: 0.4ms | ActiveRecord: 5.9ms | Allocations: 26006)
+
+
+Started POST "/bikes/4/bookings" for ::1 at 2023-11-27 13:50:38 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed", "rating"=>"5", "user_id"=>1, "bike_id"=>"4", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"4", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed"}}
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBooking Create (0.2ms)[0m  [1m[32mINSERT INTO "bookings" ("booking_process", "payment_option", "security", "rating", "created_at", "updated_at", "user_id", "bike_id", "start_time", "end_time", "status") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["booking_process", "phone"], ["payment_option", "cash"], ["security", "secure"], ["rating", "5"], ["created_at", "2023-11-27 08:20:38.377226"], ["updated_at", "2023-11-27 08:20:38.377226"], ["user_id", 1], ["bike_id", 1], ["start_time", "12:00 pm"], ["end_time", "04:00 pm"], ["status", "conformed"]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+Completed 200 OK in 12ms (Views: 0.5ms | ActiveRecord: 1.9ms | Allocations: 4956)
+
+
+Started POST "/bikes/4/bookings" for ::1 at 2023-11-27 13:58:42 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed", "rating"=>"5", "user_id"=>1, "bike_id"=>"4", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"4", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed"}}
+  [1m[36mBike Load (1.2ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Load (0.2ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."bike_id" = ?[0m  [["bike_id", 4]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBooking Create (0.2ms)[0m  [1m[32mINSERT INTO "bookings" ("booking_process", "payment_option", "security", "rating", "created_at", "updated_at", "user_id", "bike_id", "start_time", "end_time", "status") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["booking_process", "phone"], ["payment_option", "cash"], ["security", "secure"], ["rating", "5"], ["created_at", "2023-11-27 08:28:42.829845"], ["updated_at", "2023-11-27 08:28:42.829845"], ["user_id", 1], ["bike_id", 1], ["start_time", "12:00 pm"], ["end_time", "04:00 pm"], ["status", "conformed"]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+Completed 200 OK in 43ms (Views: 0.4ms | ActiveRecord: 6.6ms | Allocations: 25816)
+
+
+Started POST "/bikes/4/bookings" for ::1 at 2023-11-27 14:00:02 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed", "rating"=>"5", "user_id"=>1, "bike_id"=>"4", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"4", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed"}}
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ (rdbg)//home/rails/Desktop/task_24_nov/bikebookingsystem/app/controllers/bookings_controller.rb:1:in `check_bike_availability'
+  [1m[36mBooking Load (0.2ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."bike_id" = ? /* loading for pp */ LIMIT ?[0m  [["bike_id", 4], ["LIMIT", 11]]
+  ↳ app/controllers/bookings_controller.rb:56:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 4], ["LIMIT", 1]]
+  ↳ (rdbg)//home/rails/Desktop/task_24_nov/bikebookingsystem/app/controllers/bookings_controller.rb:1:in `check_bike_availability'
+  [1m[36mBooking Load (0.2ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."bike_id" = ?[0m  [["bike_id", 4]]
+  ↳ (rdbg)//home/rails/Desktop/task_24_nov/bikebookingsystem/app/controllers/bookings_controller.rb:1:in `check_bike_availability'
+  [1m[36mCACHE Bike Load (0.0ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mCACHE Booking Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBooking Create (0.9ms)[0m  [1m[32mINSERT INTO "bookings" ("booking_process", "payment_option", "security", "rating", "created_at", "updated_at", "user_id", "bike_id", "start_time", "end_time", "status") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["booking_process", "phone"], ["payment_option", "cash"], ["security", "secure"], ["rating", "5"], ["created_at", "2023-11-27 08:32:07.557970"], ["updated_at", "2023-11-27 08:32:07.557970"], ["user_id", 1], ["bike_id", 1], ["start_time", "12:00 pm"], ["end_time", "04:00 pm"], ["status", "conformed"]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+Completed 200 OK in 124814ms (Views: 0.4ms | ActiveRecord: 9.2ms | Allocations: 244240)
+
+
+Started POST "/bikes/4/bookings" for ::1 at 2023-11-27 14:02:17 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed", "rating"=>"5", "user_id"=>1, "bike_id"=>"4", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"4", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed"}}
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+Filter chain halted as :check_bike_availability rendered or redirected
+Completed 200 OK in 13ms (Views: 0.2ms | ActiveRecord: 2.8ms | Allocations: 8325)
+
+
+Started POST "/bikes/" for ::1 at 2023-11-27 14:02:34 +0530
+Processing by BikesController#create as */*
+  Parameters: {"name"=>"ns-125", "model_no"=>"73", "price"=>"1,000", "color"=>"red", "lighting"=>"LED", "bike"=>{"name"=>"ns-125", "model_no"=>"73", "price"=>"1,000", "color"=>"red", "lighting"=>"LED"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+  [1m[36mBike Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "bikes" WHERE "bikes"."model_no" = ? LIMIT ?[0m  [["model_no", "73"], ["LIMIT", 1]]
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+  [1m[36mBike Create (0.2ms)[0m  [1m[32mINSERT INTO "bikes" ("name", "model_no", "price", "color", "lighting", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "ns-125"], ["model_no", "73"], ["price", "1,000"], ["color", "red"], ["lighting", "LED"], ["created_at", "2023-11-27 08:32:34.877673"], ["updated_at", "2023-11-27 08:32:34.877673"]]
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+Completed 200 OK in 13ms (Views: 0.5ms | ActiveRecord: 4.5ms | Allocations: 3379)
+
+
+Started POST "/bikes/5/bookings" for ::1 at 2023-11-27 14:02:44 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed", "rating"=>"5", "user_id"=>1, "bike_id"=>"5", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"5", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed"}}
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+Filter chain halted as :check_bike_availability rendered or redirected
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 687)
+
+
+Started POST "/bikes/5/bookings" for ::1 at 2023-11-27 14:03:09 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed", "rating"=>"5", "user_id"=>1, "bike_id"=>"5", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"5", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed"}}
+  [1m[36mBike Load (0.2ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBooking Create (0.2ms)[0m  [1m[32mINSERT INTO "bookings" ("booking_process", "payment_option", "security", "rating", "created_at", "updated_at", "user_id", "bike_id", "start_time", "end_time", "status") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["booking_process", "phone"], ["payment_option", "cash"], ["security", "secure"], ["rating", "5"], ["created_at", "2023-11-27 08:33:09.863808"], ["updated_at", "2023-11-27 08:33:09.863808"], ["user_id", 1], ["bike_id", 1], ["start_time", "12:00 pm"], ["end_time", "04:00 pm"], ["status", "conformed"]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+Completed 200 OK in 46ms (Views: 0.4ms | ActiveRecord: 7.8ms | Allocations: 26342)
+
+
+Started POST "/bikes/5/bookings" for ::1 at 2023-11-27 14:03:11 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed", "rating"=>"5", "user_id"=>1, "bike_id"=>"5", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"5", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed"}}
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBooking Create (0.2ms)[0m  [1m[32mINSERT INTO "bookings" ("booking_process", "payment_option", "security", "rating", "created_at", "updated_at", "user_id", "bike_id", "start_time", "end_time", "status") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["booking_process", "phone"], ["payment_option", "cash"], ["security", "secure"], ["rating", "5"], ["created_at", "2023-11-27 08:33:11.237153"], ["updated_at", "2023-11-27 08:33:11.237153"], ["user_id", 1], ["bike_id", 1], ["start_time", "12:00 pm"], ["end_time", "04:00 pm"], ["status", "conformed"]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+Completed 200 OK in 12ms (Views: 0.5ms | ActiveRecord: 1.8ms | Allocations: 4956)
+
+
+Started POST "/bikes/5/bookings" for ::1 at 2023-11-27 14:04:38 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed", "rating"=>"5", "user_id"=>1, "bike_id"=>"5", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"5", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed"}}
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ (rdbg)//home/rails/Desktop/task_24_nov/bikebookingsystem/app/controllers/bookings_controller.rb:1:in `check_bike_availability'
+  [1m[36mBooking Load (0.2ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."bike_id" = ? /* loading for pp */ LIMIT ?[0m  [["bike_id", 5], ["LIMIT", 11]]
+  ↳ app/controllers/bookings_controller.rb:56:in `check_bike_availability'
+  [1m[36mBooking Load (0.3ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."bike_id" = ?[0m  [["bike_id", 5]]
+  ↳ (rdbg)//home/rails/Desktop/task_24_nov/bikebookingsystem/app/controllers/bookings_controller.rb:1:in `check_bike_availability'
+  [1m[36mCACHE Bike Load (0.0ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ (rdbg)//home/rails/Desktop/task_24_nov/bikebookingsystem/app/controllers/bookings_controller.rb:1:in `check_bike_availability'
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ (rdbg)//home/rails/Desktop/task_24_nov/bikebookingsystem/app/controllers/bookings_controller.rb:1:in `check_bike_availability'
+  [1m[36mBooking Load (0.1ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."bike_id" = ? /* loading for pp */ LIMIT ?[0m  [["bike_id", 3], ["LIMIT", 11]]
+  ↳ app/controllers/bookings_controller.rb:56:in `check_bike_availability'
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ (rdbg)//home/rails/Desktop/task_24_nov/bikebookingsystem/app/controllers/bookings_controller.rb:1:in `check_bike_availability'
+  [1m[36mBooking Load (0.1ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."bike_id" = ? /* loading for pp */ LIMIT ?[0m  [["bike_id", 2], ["LIMIT", 11]]
+  ↳ app/controllers/bookings_controller.rb:56:in `check_bike_availability'
+  [1m[36mCACHE Bike Load (0.0ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBooking Create (0.4ms)[0m  [1m[32mINSERT INTO "bookings" ("booking_process", "payment_option", "security", "rating", "created_at", "updated_at", "user_id", "bike_id", "start_time", "end_time", "status") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["booking_process", "phone"], ["payment_option", "cash"], ["security", "secure"], ["rating", "5"], ["created_at", "2023-11-27 08:40:53.625973"], ["updated_at", "2023-11-27 08:40:53.625973"], ["user_id", 1], ["bike_id", 1], ["start_time", "12:00 pm"], ["end_time", "04:00 pm"], ["status", "conformed"]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+Completed 200 OK in 374965ms (Views: 0.4ms | ActiveRecord: 11.2ms | Allocations: 228885)
+
+
+Started POST "/bikes/6/bookings" for ::1 at 2023-11-27 14:14:17 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed", "rating"=>"5", "user_id"=>1, "bike_id"=>"6", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"6", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed"}}
+  [1m[36mBike Load (0.2ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+Filter chain halted as :check_bike_availability rendered or redirected
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 3.7ms | Allocations: 4476)
+
+
+Started POST "/bikes/" for ::1 at 2023-11-27 14:14:29 +0530
+Processing by BikesController#create as */*
+  Parameters: {"name"=>"ns-125", "model_no"=>"93", "price"=>"1,000", "color"=>"red", "lighting"=>"LED", "bike"=>{"name"=>"ns-125", "model_no"=>"93", "price"=>"1,000", "color"=>"red", "lighting"=>"LED"}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+  [1m[36mBike Exists? (3.0ms)[0m  [1m[34mSELECT 1 AS one FROM "bikes" WHERE "bikes"."model_no" = ? LIMIT ?[0m  [["model_no", "93"], ["LIMIT", 1]]
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+  [1m[36mBike Create (0.3ms)[0m  [1m[32mINSERT INTO "bikes" ("name", "model_no", "price", "color", "lighting", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "ns-125"], ["model_no", "93"], ["price", "1,000"], ["color", "red"], ["lighting", "LED"], ["created_at", "2023-11-27 08:44:29.936330"], ["updated_at", "2023-11-27 08:44:29.936330"]]
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+Completed 200 OK in 30ms (Views: 0.7ms | ActiveRecord: 7.9ms | Allocations: 6598)
+
+
+Started POST "/bikes/6/bookings" for ::1 at 2023-11-27 14:14:36 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed", "rating"=>"5", "user_id"=>1, "bike_id"=>"6", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"6", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed"}}
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBike Load (0.3ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBooking Create (0.3ms)[0m  [1m[32mINSERT INTO "bookings" ("booking_process", "payment_option", "security", "rating", "created_at", "updated_at", "user_id", "bike_id", "start_time", "end_time", "status") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["booking_process", "phone"], ["payment_option", "cash"], ["security", "secure"], ["rating", "5"], ["created_at", "2023-11-27 08:44:36.999575"], ["updated_at", "2023-11-27 08:44:36.999575"], ["user_id", 1], ["bike_id", 1], ["start_time", "12:00 pm"], ["end_time", "04:00 pm"], ["status", "conformed"]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+Completed 200 OK in 49ms (Views: 1.0ms | ActiveRecord: 4.4ms | Allocations: 19479)
+
+
+Started POST "/bikes/6/bookings" for ::1 at 2023-11-27 14:14:46 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed", "rating"=>"5", "user_id"=>1, "bike_id"=>"6", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"6", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed"}}
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBooking Create (0.3ms)[0m  [1m[32mINSERT INTO "bookings" ("booking_process", "payment_option", "security", "rating", "created_at", "updated_at", "user_id", "bike_id", "start_time", "end_time", "status") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["booking_process", "phone"], ["payment_option", "cash"], ["security", "secure"], ["rating", "5"], ["created_at", "2023-11-27 08:44:46.560435"], ["updated_at", "2023-11-27 08:44:46.560435"], ["user_id", 1], ["bike_id", 1], ["start_time", "12:00 pm"], ["end_time", "04:00 pm"], ["status", "conformed"]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+Completed 200 OK in 17ms (Views: 0.3ms | ActiveRecord: 5.2ms | Allocations: 4956)
+
+
+Started POST "/bikes/6/bookings" for ::1 at 2023-11-27 14:15:01 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed", "rating"=>"5", "user_id"=>1, "bike_id"=>"6", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"6", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed"}}
+  [1m[36mBike Load (0.2ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ (rdbg)//home/rails/Desktop/task_24_nov/bikebookingsystem/app/controllers/bookings_controller.rb:1:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 6], ["LIMIT", 1]]
+  ↳ (rdbg)//home/rails/Desktop/task_24_nov/bikebookingsystem/app/controllers/bookings_controller.rb:1:in `check_bike_availability'
+  [1m[36mBooking Load (0.3ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."bike_id" = ?[0m  [["bike_id", 6]]
+  ↳ (rdbg)//home/rails/Desktop/task_24_nov/bikebookingsystem/app/controllers/bookings_controller.rb:1:in `check_bike_availability'
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ (rdbg)//home/rails/Desktop/task_24_nov/bikebookingsystem/app/controllers/bookings_controller.rb:1:in `check_bike_availability'
+  [1m[36mBooking Load (0.4ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."bike_id" = ? /* loading for pp */ LIMIT ?[0m  [["bike_id", 1], ["LIMIT", 11]]
+  ↳ app/controllers/bookings_controller.rb:56:in `check_bike_availability'
+  [1m[36mCACHE Bike Load (0.0ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mCACHE Booking Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mCACHE Bike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBooking Create (1.9ms)[0m  [1m[32mINSERT INTO "bookings" ("booking_process", "payment_option", "security", "rating", "created_at", "updated_at", "user_id", "bike_id", "start_time", "end_time", "status") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["booking_process", "phone"], ["payment_option", "cash"], ["security", "secure"], ["rating", "5"], ["created_at", "2023-11-27 08:48:34.200368"], ["updated_at", "2023-11-27 08:48:34.200368"], ["user_id", 1], ["bike_id", 1], ["start_time", "12:00 pm"], ["end_time", "04:00 pm"], ["status", "conformed"]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+Completed 200 OK in 212833ms (Views: 0.5ms | ActiveRecord: 12.5ms | Allocations: 266780)
+
+
+Started POST "/bikes/6/bookings" for ::1 at 2023-11-27 14:18:44 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed", "rating"=>"5", "user_id"=>1, "bike_id"=>"6", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"6", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed"}}
+  [1m[36mBike Load (0.2ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBooking Create (0.4ms)[0m  [1m[32mINSERT INTO "bookings" ("booking_process", "payment_option", "security", "rating", "created_at", "updated_at", "user_id", "bike_id", "start_time", "end_time", "status") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["booking_process", "phone"], ["payment_option", "cash"], ["security", "secure"], ["rating", "5"], ["created_at", "2023-11-27 08:48:44.595120"], ["updated_at", "2023-11-27 08:48:44.595120"], ["user_id", 1], ["bike_id", 6], ["start_time", "12:00 pm"], ["end_time", "04:00 pm"], ["status", "conformed"]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+Completed 200 OK in 73ms (Views: 0.6ms | ActiveRecord: 11.9ms | Allocations: 26374)
+
+
+Started POST "/bikes/6/bookings" for ::1 at 2023-11-27 14:18:47 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed", "rating"=>"5", "user_id"=>1, "bike_id"=>"6", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"6", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed"}}
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+Filter chain halted as :check_bike_availability rendered or redirected
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1307)
+
+
+Started POST "/bikes/" for ::1 at 2023-11-27 14:19:14 +0530
+Processing by BikesController#create as */*
+  Parameters: {"name"=>"ns-125", "model_no"=>"93", "price"=>"1,000", "color"=>"red", "lighting"=>"LED", "bike"=>{"name"=>"ns-125", "model_no"=>"93", "price"=>"1,000", "color"=>"red", "lighting"=>"LED"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+  [1m[36mBike Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "bikes" WHERE "bikes"."model_no" = ? LIMIT ?[0m  [["model_no", "93"], ["LIMIT", 1]]
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+Completed 200 OK in 10ms (Views: 1.3ms | ActiveRecord: 1.8ms | Allocations: 3170)
+
+
+Started POST "/bikes/" for ::1 at 2023-11-27 14:19:21 +0530
+Processing by BikesController#create as */*
+  Parameters: {"name"=>"ns-125", "model_no"=>"83", "price"=>"1,000", "color"=>"red", "lighting"=>"LED", "bike"=>{"name"=>"ns-125", "model_no"=>"83", "price"=>"1,000", "color"=>"red", "lighting"=>"LED"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+  [1m[36mBike Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "bikes" WHERE "bikes"."model_no" = ? LIMIT ?[0m  [["model_no", "83"], ["LIMIT", 1]]
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+  [1m[36mBike Create (0.2ms)[0m  [1m[32mINSERT INTO "bikes" ("name", "model_no", "price", "color", "lighting", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "ns-125"], ["model_no", "83"], ["price", "1,000"], ["color", "red"], ["lighting", "LED"], ["created_at", "2023-11-27 08:49:21.914204"], ["updated_at", "2023-11-27 08:49:21.914204"]]
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 1.4ms | Allocations: 2933)
+
+
+Started POST "/bikes/7/bookings" for ::1 at 2023-11-27 14:19:44 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed", "rating"=>"5", "user_id"=>1, "bike_id"=>"7", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"7", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed"}}
+  [1m[36mBike Load (0.2ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBooking Create (0.2ms)[0m  [1m[32mINSERT INTO "bookings" ("booking_process", "payment_option", "security", "rating", "created_at", "updated_at", "user_id", "bike_id", "start_time", "end_time", "status") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["booking_process", "phone"], ["payment_option", "cash"], ["security", "secure"], ["rating", "5"], ["created_at", "2023-11-27 08:49:44.146272"], ["updated_at", "2023-11-27 08:49:44.146272"], ["user_id", 1], ["bike_id", 7], ["start_time", "12:00 pm"], ["end_time", "04:00 pm"], ["status", "conformed"]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+Completed 200 OK in 15ms (Views: 0.4ms | ActiveRecord: 2.1ms | Allocations: 4953)
+
+
+Started POST "/bikes/7/bookings" for ::1 at 2023-11-27 14:19:46 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed", "rating"=>"5", "user_id"=>1, "bike_id"=>"7", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"7", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed"}}
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+Filter chain halted as :check_bike_availability rendered or redirected
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1304)
+
+
+Started GET "/bookings" for ::1 at 2023-11-27 14:22:18 +0530
+Processing by BookingsController#index as */*
+  [1m[36mBooking Load (0.4ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings"[0m
+  ↳ app/controllers/bookings_controller.rb:11:in `index'
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.4ms | Allocations: 2599)
+
+
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemoveStartTimeFromBookings (20231128041600)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231128041600') RETURNING "version"[0m
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemoveEndTimeFromBookings (20231128041650)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231128041650') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemoveEndTimeFromBookings (20231128041755)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abookings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "booking_process" varchar DEFAULT NULL, "payment_option" varchar DEFAULT NULL, "security" varchar DEFAULT NULL, "rating" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL, "bike_id" integer NOT NULL, "start_time" varchar DEFAULT NULL, "end_time" varchar DEFAULT NULL, "status" varchar DEFAULT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_abookings_on_bike_id" ON "abookings" ("bike_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "tindex_abookings_on_user_id" ON "abookings" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "abookings" ("id","booking_process","payment_option","security","rating","created_at","updated_at","user_id","bike_id","start_time","end_time","status")
+                     SELECT "id","booking_process","payment_option","security","rating","created_at","updated_at","user_id","bike_id","start_time","end_time","status" FROM "bookings"[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE "bookings"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "bookings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "booking_process" varchar DEFAULT NULL, "payment_option" varchar DEFAULT NULL, "security" varchar DEFAULT NULL, "rating" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL, "bike_id" integer NOT NULL, "start_time" varchar DEFAULT NULL, "status" varchar DEFAULT NULL, CONSTRAINT "fk_rails_9ec354d093"
+FOREIGN KEY ("bike_id")
+  REFERENCES "bikes" ("id")
+, CONSTRAINT "fk_rails_ef0571f117"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_bookings_on_user_id" ON "bookings" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_bookings_on_bike_id" ON "bookings" ("bike_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "bookings" ("id","booking_process","payment_option","security","rating","created_at","updated_at","user_id","bike_id","start_time","status")
+                     SELECT "id","booking_process","payment_option","security","rating","created_at","updated_at","user_id","bike_id","start_time","status" FROM "abookings"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "abookings"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231128041755') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemoveStartTimeFromBookings (20231128041901)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abookings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "booking_process" varchar DEFAULT NULL, "payment_option" varchar DEFAULT NULL, "security" varchar DEFAULT NULL, "rating" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL, "bike_id" integer NOT NULL, "start_time" varchar DEFAULT NULL, "status" varchar DEFAULT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_abookings_on_bike_id" ON "abookings" ("bike_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_abookings_on_user_id" ON "abookings" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "abookings" ("id","booking_process","payment_option","security","rating","created_at","updated_at","user_id","bike_id","start_time","status")
+                     SELECT "id","booking_process","payment_option","security","rating","created_at","updated_at","user_id","bike_id","start_time","status" FROM "bookings"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "bookings"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "bookings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "booking_process" varchar DEFAULT NULL, "payment_option" varchar DEFAULT NULL, "security" varchar DEFAULT NULL, "rating" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL, "bike_id" integer NOT NULL, "status" varchar DEFAULT NULL, CONSTRAINT "fk_rails_ef0571f117"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_9ec354d093"
+FOREIGN KEY ("bike_id")
+  REFERENCES "bikes" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_bookings_on_user_id" ON "bookings" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_bookings_on_bike_id" ON "bookings" ("bike_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "bookings" ("id","booking_process","payment_option","security","rating","created_at","updated_at","user_id","bike_id","status")
+                     SELECT "id","booking_process","payment_option","security","rating","created_at","updated_at","user_id","bike_id","status" FROM "abookings"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "abookings"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231128041901') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddAditionalAttrsToBookings (20231128042337)
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddAditionalAttrsToBookings (20231128042337)
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddAditionalAttrsToBookings (20231128042337)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.4ms)[0m  [1m[35mALTER TABLE "bookings" ADD "total_amount" varchar[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "bookings" ADD "date" varchar[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231128042337') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/bookings" for ::1 at 2023-11-28 09:59:06 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BookingsController#index as */*
+  [1m[36mBooking Load (0.3ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings"[0m
+  ↳ app/controllers/bookings_controller.rb:11:in `index'
+Completed 200 OK in 217ms (Views: 162.7ms | ActiveRecord: 4.8ms | Allocations: 178447)
+
+
+Started POST "/bikes/7/bookings" for ::1 at 2023-11-28 09:59:51 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed", "rating"=>"5", "user_id"=>1, "bike_id"=>"7", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"7", "status"=>"conformed"}}
+  [1m[36mBike Load (0.3ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+Filter chain halted as :check_bike_availability rendered or redirected
+Completed 200 OK in 240ms (Views: 0.4ms | ActiveRecord: 1.4ms | Allocations: 76646)
+
+
+Started POST "/bikes/" for ::1 at 2023-11-28 10:00:09 +0530
+Processing by BikesController#create as */*
+  Parameters: {"name"=>"ns-125", "model_no"=>"83", "price"=>"1,000", "color"=>"red", "lighting"=>"LED", "bike"=>{"name"=>"ns-125", "model_no"=>"83", "price"=>"1,000", "color"=>"red", "lighting"=>"LED"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+  [1m[36mBike Exists? (2.5ms)[0m  [1m[34mSELECT 1 AS one FROM "bikes" WHERE "bikes"."model_no" = ? LIMIT ?[0m  [["model_no", "83"], ["LIMIT", 1]]
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+Completed 200 OK in 17ms (Views: 6.1ms | ActiveRecord: 2.8ms | Allocations: 4379)
+
+
+Started POST "/bikes/" for ::1 at 2023-11-28 10:00:18 +0530
+Processing by BikesController#create as */*
+  Parameters: {"name"=>"ns-125", "model_no"=>"03", "price"=>"1,000", "color"=>"red", "lighting"=>"LED", "bike"=>{"name"=>"ns-125", "model_no"=>"03", "price"=>"1,000", "color"=>"red", "lighting"=>"LED"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+  [1m[36mBike Exists? (3.1ms)[0m  [1m[34mSELECT 1 AS one FROM "bikes" WHERE "bikes"."model_no" = ? LIMIT ?[0m  [["model_no", "03"], ["LIMIT", 1]]
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+Completed 200 OK in 13ms (Views: 1.2ms | ActiveRecord: 3.4ms | Allocations: 2776)
+
+
+Started POST "/bikes/" for ::1 at 2023-11-28 10:00:28 +0530
+Processing by BikesController#create as */*
+  Parameters: {"name"=>"ns-125", "model_no"=>"01", "price"=>"1,000", "color"=>"red", "lighting"=>"LED", "bike"=>{"name"=>"ns-125", "model_no"=>"01", "price"=>"1,000", "color"=>"red", "lighting"=>"LED"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+  [1m[36mBike Exists? (2.8ms)[0m  [1m[34mSELECT 1 AS one FROM "bikes" WHERE "bikes"."model_no" = ? LIMIT ?[0m  [["model_no", "01"], ["LIMIT", 1]]
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+  [1m[36mBike Create (0.5ms)[0m  [1m[32mINSERT INTO "bikes" ("name", "model_no", "price", "color", "lighting", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "ns-125"], ["model_no", "01"], ["price", "1,000"], ["color", "red"], ["lighting", "LED"], ["created_at", "2023-11-28 04:30:28.147442"], ["updated_at", "2023-11-28 04:30:28.147442"]]
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bikes_controller.rb:19:in `create'
+Completed 200 OK in 35ms (Views: 0.8ms | ActiveRecord: 8.0ms | Allocations: 3736)
+
+
+Started POST "/bikes/8/bookings" for ::1 at 2023-11-28 10:00:38 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed", "rating"=>"5", "user_id"=>1, "bike_id"=>"8", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"8", "status"=>"conformed"}}
+  [1m[36mBike Load (0.2ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+Completed 200 OK in 125ms (Views: 1.4ms | ActiveRecord: 4.6ms | Allocations: 89665)
+
+
+Started POST "/bikes/8/bookings" for ::1 at 2023-11-28 10:01:31 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed", "rating"=>"5", "total_amount"=>"1200", "date"=>"12-11-2023", "user_id"=>1, "bike_id"=>"8", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"8", "status"=>"conformed", "total_amount"=>"1200", "date"=>"12-11-2023"}}
+  [1m[36mBike Load (0.2ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBike Load (0.2ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBooking Create (0.6ms)[0m  [1m[32mINSERT INTO "bookings" ("booking_process", "payment_option", "security", "rating", "created_at", "updated_at", "user_id", "bike_id", "status", "total_amount", "date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["booking_process", "phone"], ["payment_option", "cash"], ["security", "secure"], ["rating", "5"], ["created_at", "2023-11-28 04:31:31.030160"], ["updated_at", "2023-11-28 04:31:31.030160"], ["user_id", 1], ["bike_id", 7], ["status", "conformed"], ["total_amount", "1200"], ["date", "12-11-2023"]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+Completed 200 OK in 23ms (Views: 0.7ms | ActiveRecord: 3.7ms | Allocations: 5045)
+
+
+Started POST "/bikes/8/bookings" for ::1 at 2023-11-28 10:01:48 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed", "rating"=>"5", "total_amount"=>"1200", "date"=>"12-11-2023", "user_id"=>1, "bike_id"=>"8", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"8", "status"=>"conformed", "total_amount"=>"1200", "date"=>"12-11-2023"}}
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBike Load (0.2ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mBooking Create (0.5ms)[0m  [1m[32mINSERT INTO "bookings" ("booking_process", "payment_option", "security", "rating", "created_at", "updated_at", "user_id", "bike_id", "status", "total_amount", "date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["booking_process", "phone"], ["payment_option", "cash"], ["security", "secure"], ["rating", "5"], ["created_at", "2023-11-28 04:31:48.865387"], ["updated_at", "2023-11-28 04:31:48.865387"], ["user_id", 1], ["bike_id", 8], ["status", "conformed"], ["total_amount", "1200"], ["date", "12-11-2023"]]
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/bookings_controller.rb:21:in `create'
+Completed 200 OK in 32ms (Views: 4.2ms | ActiveRecord: 4.2ms | Allocations: 4960)
+
+
+Started POST "/bikes/8/bookings" for ::1 at 2023-11-28 10:01:50 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed", "rating"=>"5", "total_amount"=>"1200", "date"=>"12-11-2023", "user_id"=>1, "bike_id"=>"8", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"8", "status"=>"conformed", "total_amount"=>"1200", "date"=>"12-11-2023"}}
+  [1m[36mBike Load (0.2ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+Filter chain halted as :check_bike_availability rendered or redirected
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 1304)
+
+
+Started POST "/bikes/8/bookings" for ::1 at 2023-11-28 10:02:00 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "start_time"=>"12:00 pm", "end_time"=>"04:00 pm", "status"=>"conformed", "rating"=>"5", "total_amount"=>"1200", "date"=>"12-11-2023", "user_id"=>1, "bike_id"=>"8", "booking"=>{"booking_process"=>"phone", "payment_option"=>"cash", "security"=>"secure", "rating"=>"5", "user_id"=>1, "bike_id"=>"8", "status"=>"conformed", "total_amount"=>"1200", "date"=>"12-11-2023"}}
+  [1m[36mBike Load (0.2ms)[0m  [1m[34mSELECT "bikes".* FROM "bikes" WHERE "bikes"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:57:in `check_bike_availability'
+  [1m[36mBooking Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "bookings" WHERE "bookings"."bike_id" = ? LIMIT ?[0m  [["bike_id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/bookings_controller.rb:60:in `check_bike_availability'
+Filter chain halted as :check_bike_availability rendered or redirected
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 1307)
+
+
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

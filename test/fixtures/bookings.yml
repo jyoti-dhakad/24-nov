@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  booking_process: MyString
+  payment_option: MyString
+  security: MyString
+  rating: MyString
+
+two:
+  booking_process: MyString
+  payment_option: MyString
+  security: MyString
+  rating: MyString
